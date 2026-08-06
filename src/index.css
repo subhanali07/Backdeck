@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-body {
-  color: black;
+body{
+  background-color: #ffffff;
 }
   :root{
     --graphiteblack:#1C1C1C;
@@ -21,4 +21,9 @@ body {
 @theme {
   --font-serif: "Libre Baskerville", serif;
   --font-baskerville: "Libre Baskerville", serif;
+  --graphiteblack:#1C1C1C;
+    --white:#FFFFFF;
+    --indigo:#5D00FF;
+    --pink:#FF2E91;
+    --lime:#CFFF04;
 }
