@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+body {
+  color: black;
+}
+  :root{
+    --graphiteblack:#1C1C1C;
+    --white:#FFFFFF;
+    --indigo:#5D00FF;
+    --pink:#FF2E91;
+    --lime:#CFFF04;
+    --serif:"Libre Baskerville", serif;
+  }
+
+.libre-baskerville {
+  font-family: "Libre Baskerville", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+@theme {
+  --font-serif: "Libre Baskerville", serif;
+  --font-baskerville: "Libre Baskerville", serif;
+}
