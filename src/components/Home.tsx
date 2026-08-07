@@ -1,5 +1,5 @@
-import dihmare from "../assets/dihmare.png";
-
+import launchit from '../assets/launchit-logo.svg'
+import LaunchSequence from './kindavideo';
 export default function Home() {
   return (
     <>
@@ -8,6 +8,7 @@ export default function Home() {
       <section className="mx-13 border-x-2 h-screen border-black/10 " id="home">
         <div className="flex p-7 ">
           <div className="justify-start">
+            <img src={launchit} className='rounded-2xl'/>
             <h1 className="text-4xl mt-2 font-baskerville font-extrabold">
               Your competitors are still sketching. We already{" "}
               <span className="text-[#FF2E91]/70">shipped</span> products.
@@ -17,23 +18,27 @@ export default function Home() {
               working with AI Startups to early stage YC and Venture Capital has
               been our goto.{" "}
             </p>
-            <div className="mt-7 flex gap-4  items-center">
-              <div className="font-baskerville justify-center items-center flex gap-2  bg-[linear-gradient(to_right,_theme(colors.gray.600),_theme(colors.gray.800),_theme(colors.gray.700),_theme(colors.gray.800))] w-fit px-3 py-[3.5px] rounded-[7px] text-xs text-white font-extrabold shadow-lg shadow-black/30">
-                <img
-                  src={dihmare}
-                  className="rounded-full size-8 object-cover"
-                  alt="Daniyal"
-                />
-                Book call with Daniyal
+            <div className="mt-7 flex gap-4 items-center">
+              <div className="group relative overflow-hidden font-baskerville justify-center items-center flex gap-2 bg-[linear-gradient(to_right,_theme(colors.gray.600),_theme(colors.gray.800),_theme(colors.gray.700),_theme(colors.gray.800))] w-fit px-6 py-[12px] rounded-[7px] text-xs text-white font-extrabold shadow-lg shadow-black/30 border border-transparent hover:border-2 hover:border-[#cfff04] transition-colors duration-300 hover:cursor-pointer">
+                <span className="absolute inset-x-0 bottom-0 h-0 bg-white transition-all duration-300 ease-out group-hover:h-full"></span>
+             
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                  Let's do a call
+                </span>
               </div>
-              <div className=" w-fit px-6 py-[12px]  rounded-[7px] text-white text-xs  font-extrabold bg-black/30  font-meow">View Work</div>
+
+              <div className="group relative overflow-hidden w-fit px-6 py-[12px] hover:border-2 hover:border-[#cfff04] rounded-[7px] text-white text-xs shadow-lg shadow-black/30  font-extrabold bg-black/30 font-meow border border-transparent transition-colors duration-300 hover:cursor-pointer">
+                <span className="absolute inset-x-0 bottom-0 h-0 bg-white transition-all duration-300 ease-out group-hover:h-full"></span>
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                  View Work
+                </span>
+              </div>
             </div>
           </div>
-          <video
-            src=""
-            about="avideo ig"
-            className="h-100 w-180 ml-20 bg-black/10 rounded-[9px]"
-          />
+          <div
+            className="h-100 w-580 ml-20 bg-black/10 rounded-[9px]">
+             <LaunchSequence/>
+          </div>
         </div>
       </section>
     </>
