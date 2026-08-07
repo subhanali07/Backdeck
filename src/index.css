@@ -1,16 +1,16 @@
 @import "tailwindcss";
-
-body{
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,600;1,600&family=Quicksand:wght@300..700&display=swap");
+body {
   background-color: #ffffff;
 }
-  :root{
-    --graphiteblack:#1C1C1C;
-    --white:#FFFFFF;
-    --indigo:#5D00FF;
-    --pink:#FF2E91;
-    --lime:#CFFF04;
-    --serif:"Libre Baskerville", serif;
-  }
+:root {
+  --graphiteblack: #1c1c1c;
+  --white: #ffffff;
+  --indigo: #5d00ff;
+  --pink: #ff2e91;
+  --lime: #cfff04;
+  --serif: "Libre Baskerville", serif;
+}
 
 .libre-baskerville {
   font-family: "Libre Baskerville", serif;
@@ -21,9 +21,16 @@ body{
 @theme {
   --font-serif: "Libre Baskerville", serif;
   --font-baskerville: "Libre Baskerville", serif;
-  --graphiteblack:#1C1C1C;
-    --white:#FFFFFF;
-    --indigo:#5D00FF;
-    --pink:#FF2E91;
-    --lime:#CFFF04;
+  --graphiteblack: #1c1c1c;
+  --white: #ffffff;
+  --indigo: #5d00ff;
+  --pink: #ff2e91;
+  --lime: #cfff04;
+  --font-meow: "Quicksand";
+}
+.quicksand-meow {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
