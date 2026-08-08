@@ -1,6 +1,9 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Marquee } from "./ui/marquee";
+import { Meteors } from "./ui/meteors";
+import { ShineBorder } from "./ui/shine-border";
+import { BorderBeam } from "./ui/border-beam";
 
 const reviews = [
   {
@@ -92,8 +95,10 @@ const Services = () => {
       className="mx-13 border-x-2 border-black/10 py-20 px-10 border-2"
       id="services"
     >
-      <div className="w-full grid md:grid-cols-2 gap-8 items-start border-2 border-black/10 p-8 rounded-[8px]">
+
+      <div className="w-full relative grid md:grid-cols-2 gap-8 items-start border-2 border-black/10 p-8 rounded-[8px]">
         <div className="flex relative flex-col justify-center">
+
           <h2 className="text-5xl font-meow font-extrabold text-[#1C1C1C] leading-tight">
             our <span className="text-[#4d03cf]">services</span>
           </h2>
@@ -103,6 +108,7 @@ const Services = () => {
           </p>
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
             <Marquee pauseOnHover className="[--duration:20s]">
+              {" "}
               {firstRow.map((review) => (
                 <ReviewCard key={review.username} {...review} />
               ))}
@@ -117,25 +123,20 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="bg-[#1C1C1C] rounded-[8px] pb-40 p-10 shadow-2xl shadow-black/40">
-          <h3 className="text-white text-xl font-meow font-bold mb-6">
+        <div className="relative overflow-hidden bg-[#1C1C1C] rounded-[8px] pb-40 p-10 shadow-2xl shadow-black/40">
+          <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[length:18px_18px]" />
+
+          <h3 className="relative text-white  font-meow text-4xl font-bold mb-8">
             what's <span className="text-[#CFFF04]">included</span>?
           </h3>
-          <ul className="space-y-4">
+
+          <ul className="relative space-y-5">
             {services.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="mt-1 size-4 rounded-full bg-[#CFFF04]/15 border border-[#CFFF04]/40 flex items-center justify-center shrink-0">
-                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M4 12l5 5L20 6"
-                      stroke="#CFFF04"
-                      strokeWidth="3.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                <span className="text-[#CFFF04] font-mono text-lg mt-0.5 shrink-0 w-5">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="text-white/80 text-sm font-mono leading-relaxed">
+                <span className="text-white/85 text-sm font-mono leading-relaxed">
                   {item}
                 </span>
               </li>
