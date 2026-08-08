@@ -340,7 +340,7 @@ const Navbar = () => {
             className="group relative bg-[#e7e7e7] p-1 rounded-[8px] shrink-0"
             whileHover="hover"
           >
-            <div className="flex items-center gap-2 bg-white rounded-[7px] pl-2 pr-3 py-1 transition-colors duration-200 group-hover:bg-[#dddada]">
+            <div className="flex items-center gap-2 bg-white rounded-[7px] pl-2 pr-3 py-1 transition-colors duration-200 group-hover:bg-[#1c1c1c]">
               <motion.img
                 src={launchit}
                 className="w-auto h-9 rounded-[6px]"
