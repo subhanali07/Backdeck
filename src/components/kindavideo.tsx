@@ -265,7 +265,6 @@ function LiveScene({ active }: SceneProps) {
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center gap-6 px-6 relative">
-        {/* fake cursor */}
         <div
           className="absolute transition-all duration-[1400ms] ease-out pointer-events-none"
           style={{
