@@ -1,9 +1,7 @@
-import React from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Marquee } from "./ui/marquee";
 
-/* ---------- reviews — each one distinct, no repeats ---------- */
 const reviews = [
   {
     name: "Ayesha K.",
@@ -46,7 +44,6 @@ const reviews = [
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
-/* ---------- terminal-styled review card ---------- */
 const ReviewCard = ({
   name,
   username,
@@ -106,7 +103,6 @@ const Services = () => {
       id="services"
     >
       <div className="w-full relative grid md:grid-cols-2 gap-8 items-start border-2 border-black/10 p-8 rounded-[8px]">
-        {/* Left column */}
         <div className="flex relative flex-col justify-center">
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -151,7 +147,6 @@ const Services = () => {
           </motion.div>
         </div>
 
-        {/* Right column — terminal panel, animates in like it's booting up */}
         <motion.div
           initial={{ opacity: 0, x: 32 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -161,7 +156,6 @@ const Services = () => {
         >
           <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[length:18px_18px] pointer-events-none" />
 
-          {/* window chrome — dots light up in sequence on scroll-in */}
           <div className="relative flex items-center gap-2 px-4 py-3 border-b border-white/10">
             {["#FF2E91", "#CFFF04", "#5D00FF"].map((c, i) => (
               <motion.span

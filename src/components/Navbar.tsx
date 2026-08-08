@@ -15,7 +15,6 @@ const LINKS = [
   { label: "contact", href: "#contact" },
 ];
 
-/* ---------- terminal-bracket nav link ---------- */
 function BracketLink({
   label,
   href,
@@ -69,7 +68,6 @@ function BracketLink({
   );
 }
 
-/* ---------- magnetic terminal-style CTA ---------- */
 function MagneticCTA({
   children,
   onClick,
@@ -115,7 +113,6 @@ function MagneticCTA({
   );
 }
 
-/* ---------- command palette ---------- */
 const COMMANDS = [
   { label: "work", desc: "see what we've shipped", href: "#work" },
   { label: "services", desc: "what we actually do", href: "#services" },
@@ -277,7 +274,6 @@ const Navbar = () => {
     };
   }, [menuOpen, paletteOpen]);
 
-  // global "/" shortcut to open the command palette
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
@@ -338,7 +334,6 @@ const Navbar = () => {
             scrolled ? "drop-shadow-[0_4px_20px_rgba(0,0,0,0.08)]" : ""
           }`}
         >
-          {/* Logo */}
           <motion.a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
@@ -359,7 +354,6 @@ const Navbar = () => {
             </div>
           </motion.a>
 
-          {/* Desktop nav */}
           <motion.div
             onMouseEnter={() => {
               setContainerHover(true);
@@ -394,7 +388,6 @@ const Navbar = () => {
               />
             ))}
 
-            {/* command palette trigger — the GOAT touch */}
             <button
               onClick={() => setPaletteOpen(true)}
               className={`ml-1 flex items-center gap-1.5 px-2.5 py-1 rounded-[5px] border font-mono text-[11px] transition-colors duration-200 ${
@@ -419,7 +412,6 @@ const Navbar = () => {
             </MagneticCTA>
           </motion.div>
 
-          {/* Mobile toggle */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
             className="sm:hidden flex flex-col items-center justify-center gap-[5px] bg-[#e7e7e7] size-11 rounded-[8px] shrink-0"
@@ -441,7 +433,6 @@ const Navbar = () => {
         </motion.div>
       </motion.nav>
 
-      {/* Mobile menu overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div

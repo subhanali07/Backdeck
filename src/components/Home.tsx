@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import launchit from "../assets/launchit-logo.svg";
 import LaunchSequence from "./kindavideo";
@@ -22,12 +21,10 @@ export default function Home() {
         className="mx-13 border-x-2 h-screen border-black/10 relative overflow-hidden"
         id="home"
       >
-        {/* faint dot texture — ties into the terminal cards elsewhere */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,#1C1C1C_1px,transparent_0)] bg-[length:22px_22px]" />
 
         <div className="relative flex p-7 border-b-2 border-black/10">
           <div className="justify-start max-w-xl">
-            {/* logo */}
             <motion.img
               src={launchit}
               className="rounded-2xl"
@@ -36,7 +33,6 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             />
 
-            {/* terminal status badge */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -52,7 +48,6 @@ export default function Home() {
               </span>
             </motion.div>
 
-            {/* headline — staggered word reveal */}
             <h1 className="text-5xl mt-4 font-meow font-extrabold leading-tight">
               {headline.map((word, i) => (
                 <motion.span
@@ -103,7 +98,6 @@ export default function Home() {
               has been our goto.
             </motion.p>
 
-            {/* buttons — cleaned up, consistent lime-fill language */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

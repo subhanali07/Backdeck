@@ -8,7 +8,6 @@ import {
   motion,
   useMotionValue,
   useSpring,
-  AnimatePresence,
 } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 
@@ -35,7 +34,6 @@ function ProjectMedia({
   );
 }
 
-/* ---------- magnetic arrow, same physics as the nav CTA ---------- */
 function MagneticArrow() {
   const ref = useRef<HTMLSpanElement>(null);
   const x = useMotionValue(0);
@@ -127,7 +125,6 @@ const Ourwork = () => {
             <div className="relative">
               <ProjectMedia title={project.title} video={VIDEOS[project.key]} />
 
-              {/* ghost index number, revealed on hover */}
               <motion.span
                 initial={{ opacity: 0, x: -6 }}
                 whileHover={{ opacity: 1, x: 0 }}
@@ -136,7 +133,6 @@ const Ourwork = () => {
                 {String(i + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
               </motion.span>
 
-              {/* live status pulse, top-right */}
               <span className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/40 backdrop-blur-sm px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="relative flex size-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CFFF04] opacity-75" />
@@ -147,7 +143,6 @@ const Ourwork = () => {
                 </span>
               </span>
 
-              {/* bottom gradient wipe on hover */}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 

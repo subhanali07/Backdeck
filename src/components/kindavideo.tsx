@@ -1,19 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-/**
- * LaunchSequence
- * A four-act motion piece for the Launchit hero. Auto-cycles through:
- *   1. TERMINAL   — a real-feeling deploy typing out
- *   2. PIPELINE   — build → test → deploy nodes lighting up in sequence
- *   3. SHIPPED    — a burst moment, the payoff
- *   4. LIVE       — a mock browser window with a cursor click + stats ticking up
- * Then loops back to 1. Pure CSS/SVG/JS — no dependencies, no video file.
- *
- * Theme:
- *   graphite #1C1C1C   white #FFFFFF
- *   indigo   #5D00FF   pink  #FF2E91   lime #CFFF04
- */
 
 const COLORS = {
   graphite: "#1C1C1C",
@@ -37,7 +24,6 @@ interface SceneProps {
   active: boolean;
 }
 
-/* ---------------- Act 1: Terminal ---------------- */
 interface ScriptLine {
   text: string;
   color: string;
@@ -109,7 +95,6 @@ function TerminalScene({ active }: SceneProps) {
   );
 }
 
-/* ---------------- Act 2: Pipeline ---------------- */
 const NODES = ["build", "test", "deploy", "live"] as const;
 
 function PipelineScene({ active }: SceneProps) {
@@ -179,7 +164,6 @@ function PipelineScene({ active }: SceneProps) {
   );
 }
 
-/* ---------------- Act 3: Shipped burst ---------------- */
 interface BurstPiece {
   id: number;
   angle: number;
@@ -235,7 +219,6 @@ function ShippedScene({ active }: SceneProps) {
   );
 }
 
-/* ---------------- Act 4: Live product + stats ---------------- */
 function useCountUp(target: number, active: boolean, duration = 1200): number {
   const [val, setVal] = useState(0);
   useEffect(() => {
@@ -274,18 +257,16 @@ function LiveScene({ active }: SceneProps) {
 
   return (
     <div className="h-full flex flex-col">
-      {/* mini browser chrome */}
       <div className="flex items-center gap-2 px-3 py-2 border-b border-white/10 bg-white/[0.02]">
         <span className="size-2 rounded-full bg-white/20" />
         <span className="size-2 rounded-full bg-white/20" />
         <span className="size-2 rounded-full bg-white/20" />
         <div className="ml-2 flex-1 h-5 rounded-full bg-white/[0.04] flex items-center px-3">
-          <span className="text-[10px] font-mono text-white/30">launchit.dev</span>
+          <span className="text-[10px] font-mono text-white/30">launchit.xyz</span>
         </div>
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center gap-6 px-6 relative">
-        {/* fake cursor */}
         <div
           className="absolute transition-all duration-[1400ms] ease-out pointer-events-none"
           style={{
@@ -340,7 +321,6 @@ function Stat({ label, value, suffix, color }: StatProps) {
   );
 }
 
-/* ---------------- Root component ---------------- */
 export default function LaunchSequence() {
   const [phaseIndex, setPhaseIndex] = useState(0);
   const phase = PHASES[phaseIndex];
@@ -376,7 +356,6 @@ export default function LaunchSequence() {
         .lit-ripple { animation: lit-ripple-out 700ms ease-out forwards; }
       `}</style>
 
-      {/* ambient glow, shifts tint per phase */}
       <div
         className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full opacity-20 blur-3xl transition-colors duration-1000"
         style={{
@@ -389,7 +368,6 @@ export default function LaunchSequence() {
         style={{ background: COLORS.pink }}
       />
 
-      {/* window chrome */}
       <div className="relative flex items-center gap-2 px-4 py-3 border-b border-white/10 z-10">
         <span className="size-2.5 rounded-full" style={{ background: COLORS.pink }} />
         <span className="size-2.5 rounded-full" style={{ background: COLORS.lime }} />
@@ -399,7 +377,6 @@ export default function LaunchSequence() {
         </span>
       </div>
 
-      {/* scene body */}
       <div className="relative flex-1 z-10 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
@@ -418,7 +395,6 @@ export default function LaunchSequence() {
         </AnimatePresence>
       </div>
 
-      {/* progress dots */}
       <div className="relative flex items-center justify-center gap-1.5 py-3 border-t border-white/10 z-10">
         {PHASES.map((p, i) => (
           <motion.button
