@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {  useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion, useMotionValue, useSpring } from "motion/react";
 
 function MagneticSubmit({
@@ -45,9 +46,9 @@ function MagneticSubmit({
 }
 
 const CHANNELS = [
-  { label: "email", value: "hello@launchit.dev", href: "mailto:hello@launchit.dev" },
-  { label: "twitter", value: "@launchit", href: "https://twitter.com" },
-  { label: "github", value: "/launchit", href: "https://github.com" },
+  { label: "email", value: "subhanali200823@gmail.com", href: "mailto:subhanali200823@gmail.com" },
+  { label: "twitter", value: "subhanali070", href: "https://x.com/subhanali070" },
+  { label: "github", value: "/subhanali", href: "https://github.com/subhanali07" },
 ];
 
 const BUDGETS = ["< $1", "$1k – 5k", "$5k – 15k", "$15k+"];
@@ -58,14 +59,36 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      setSubmitted(true);
-    }, 700);
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setSending(true);
+
+  try {
+    await emailjs.send(
+      "service_58gxogh",
+      "template_q47zgmb",
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        budget: budget || "Not specified",
+      },
+      {
+        publicKey: "maekE75_R0ehdJ20-",
+      }
+    );
+
+    setSubmitted(true);
+  }  catch (error: any) {
+  console.error("Email failed:", error);
+  console.error("Status:", error?.status);
+  console.error("Text:", error?.text);
+
+  alert(`Failed to send message: ${error?.text || "Unknown error"}`);
+} finally {
+  setSending(false);
+}
+};
 
   return (
     <section
@@ -73,7 +96,6 @@ export default function Contact() {
       id="contact"
     >
       <div className="w-full relative grid md:grid-cols-2 gap-8 items-start border-2 border-black/10 p-8 rounded-[8px]">
-        {/* Left — heading + channels */}
         <div className="flex flex-col justify-center">
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -123,7 +145,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right — plain graphite card, no window chrome */}
         <motion.div
           initial={{ opacity: 0, x: 32 }}
           whileInView={{ opacity: 1, x: 0 }}

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { Link } from "react-router-dom";
 import subhan from "../assets/subhan.mp4";
 import aleeza from "../assets/aleeza.mp4";
@@ -103,10 +103,8 @@ function InteractiveCard({ study, index }: { study: typeof CASE_STUDIES[0]; inde
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       className="group relative flex flex-col md:flex-row gap-6 bg-white rounded-xl p-6 border border-black/5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] transition-shadow duration-500 cursor-pointer"
     >
-      {/* Soft gradient sheen on hover */}
       <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-transparent via-transparent to-black/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-      {/* Video Container with Parallax Lift */}
       <motion.div 
         style={{ transform: "translateZ(30px)" }}
         className="w-full md:w-1/2 h-64 rounded-lg overflow-hidden bg-[#1C1C1C] relative"
@@ -119,7 +117,6 @@ function InteractiveCard({ study, index }: { study: typeof CASE_STUDIES[0]; inde
           loop
           playsInline
         />
-        {/* Animated Laser Scanner */}
         <motion.div 
           className="absolute left-0 right-0 h-[2px] shadow-[0_0_12px_currentColor] opacity-0 group-hover:opacity-100 pointer-events-none z-20"
           style={{ backgroundColor: study.color, color: study.color }}
@@ -128,7 +125,6 @@ function InteractiveCard({ study, index }: { study: typeof CASE_STUDIES[0]; inde
         />
       </motion.div>
 
-      {/* Content Container */}
       <motion.div 
         style={{ transform: "translateZ(40px)" }}
         className="w-full md:w-1/2 flex flex-col justify-center"
@@ -146,7 +142,6 @@ function InteractiveCard({ study, index }: { study: typeof CASE_STUDIES[0]; inde
           {study.desc}
         </p>
 
-        {/* Dynamic Metrics */}
         <div className="grid grid-cols-2 gap-4 mt-auto border-t border-dashed border-black/10 pt-4">
           {study.metrics.map((metric, i) => (
             <div key={i} className="flex flex-col">
@@ -161,7 +156,6 @@ function InteractiveCard({ study, index }: { study: typeof CASE_STUDIES[0]; inde
 }
 
 const CaseStudies = () => {
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -173,12 +167,10 @@ const CaseStudies = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-[#fafafa] overflow-hidden"
     >
-      {/* Background Dot Pattern */}
       <div className="fixed inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,#1C1C1C_1px,transparent_0)] bg-[length:24px_24px] pointer-events-none" />
 
       <section className="relative max-w-6xl mx-auto px-6 py-32 z-10">
         
-        {/* Header Setup */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 border-b border-black/10 pb-8">
           <div>
             <Link to="/" className="inline-flex items-center gap-2 text-[11px] font-mono text-black/40 hover:text-[#5D00FF] transition-colors mb-8 uppercase tracking-widest">
@@ -203,7 +195,6 @@ const CaseStudies = () => {
           </motion.p>
         </div>
 
-        {/* Case Studies Stack */}
         <div className="flex flex-col gap-12 perspective-[2000px]">
           {CASE_STUDIES.map((study, index) => (
             <InteractiveCard key={study.id} study={study} index={index} />

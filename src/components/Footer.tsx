@@ -17,7 +17,6 @@ const COLORS = {
   lime: "#CFFF04",
 };
 
-/* ---------- magnetic wrapper — same physics used across the site ---------- */
 function Magnetic({
   children,
   strength = 0.3,
@@ -57,7 +56,6 @@ function Magnetic({
   );
 }
 
-/* ---------- rotating circular "back to top" badge ---------- */
 function BackToTopBadge() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const label = "SCROLL TO TOP • SCROLL TO TOP • ";
@@ -144,7 +142,6 @@ export default function Footer() {
       onMouseLeave={() => setHover(false)}
       className="relative mx-13 mb-10 overflow-hidden rounded-[9px] border border-white/10 bg-[#1C1C1C] px-10 pt-16 pb-8"
     >
-      {/* mouse-following glow */}
       <motion.div
         className="pointer-events-none absolute h-[420px] w-[420px] rounded-full blur-[100px]"
         style={{
@@ -158,10 +155,8 @@ export default function Footer() {
         }}
       />
 
-      {/* faint dot grid, consistent with rest of site */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[length:22px_22px]" />
 
-      {/* top row — nav + socials */}
       <div className="relative z-10 flex flex-wrap items-start justify-between gap-10 pb-14 border-b border-white/10">
         <div className="flex flex-col gap-3">
           <span className="font-mono text-[11px] uppercase tracking-widest text-white/30">
@@ -215,7 +210,6 @@ export default function Footer() {
         <BackToTopBadge />
       </div>
 
-      {/* massive parallax headline */}
       <div className="relative z-10 py-14 flex justify-center overflow-hidden">
         <motion.h2
           style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 800 }}
@@ -228,7 +222,6 @@ export default function Footer() {
         </motion.h2>
       </div>
 
-      {/* bottom bar */}
       <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/10 font-mono text-[10px] uppercase tracking-widest text-white/30">
         <span>© 2026 Launchit — all rights reserved</span>
         <span className="flex items-center gap-1.5">

@@ -7,7 +7,7 @@ const PRINCIPLES = [
   },
   {
     title: "no account managers",
-    body: "you talk to whoever's actually writing the code. every time.",
+    body: "you talk to whoever's actually writing the code or making ur design, every time.",
   },
   {
     title: "no 40-slide decks",
@@ -33,7 +33,6 @@ export default function About() {
       id="about"
     >
       <div className="w-full relative grid md:grid-cols-2 gap-8 items-start border-2 border-black/10 p-8 rounded-[8px]">
-        {/* Left — manifesto */}
         <div className="flex flex-col justify-center">
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -82,8 +81,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right — shipping receipt, not a terminal */}
-      {/* Right — shipping receipt, not a terminal */}
         <motion.div
           initial={{ opacity: 0, x: 32, rotate: 1.5 }}
           whileInView={{ opacity: 1, x: 0, rotate: 1.5 }}
@@ -105,10 +102,8 @@ export default function About() {
           viewport={{ once: true, margin: "-80px" }}
           className="relative bg-white border border-black/5 rounded-md shadow-2xl shadow-black/5 p-8 font-mono cursor-pointer overflow-hidden group"
         >
-          {/* Subtle thermal paper sheen on hover */}
           <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-[#5D00FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-          {/* torn edge effect */}
           <div
             className="absolute -top-[1px] left-0 right-0 h-2 bg-white"
             style={{
@@ -154,9 +149,7 @@ export default function About() {
           </div>
 
           <div className="mt-5 flex items-center justify-between relative z-10 group/scanner">
-            {/* Interactive Barcode */}
             <div className="relative flex gap-[2px] py-1 cursor-crosshair">
-              {/* Animated Laser Scanner */}
               <motion.div 
                 className="absolute left-0 right-0 h-[2px] bg-[#CFFF04] shadow-[0_0_8px_#CFFF04] opacity-0 group-hover/scanner:opacity-100 pointer-events-none z-20"
                 animate={{ y: [0, 20, 0] }}
