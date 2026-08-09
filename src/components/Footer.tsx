@@ -110,9 +110,9 @@ const NAV_LINKS = [
 ];
 
 const SOCIALS = [
-  { icon: Mail, href: "mailto:hello@launchit.dev", label: "email" },
-  { icon: FaTwitter, href: "https://twitter.com", label: "twitter" },
-  { icon: FaGithub, href: "https://github.com", label: "github" },
+  { icon: Mail, href: "mailto:subhanali200823@gmai.com", label: "email" },
+  { icon: FaTwitter, href: "https://twitter.com/subhanali070", label: "twitter" },
+  { icon: FaGithub, href: "https://github.com/subhanali07", label: "github" },
 ];
 
 export default function Footer() {
@@ -123,7 +123,6 @@ export default function Footer() {
   const glowX = useSpring(mx, { stiffness: 120, damping: 20 });
   const glowY = useSpring(my, { stiffness: 120, damping: 20 });
 
-  // subtle tilt on the massive headline, driven by the same pointer
   const tiltX = useTransform(my, [-200, 200], [4, -4]);
   const tiltY = useTransform(mx, [-200, 200], [-4, 4]);
 
