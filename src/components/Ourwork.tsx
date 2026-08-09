@@ -4,6 +4,7 @@ import danibhai from "../assets/danibhoi.mp4";
 import subhan from "../assets/subhan.mp4";
 import naqsh from "../assets/resume-builder.mp4";
 import paperbags from "../assets/paperbags.mp4";
+import { Link } from "react-router-dom";
 import {
   motion,
   useMotionValue,
@@ -111,59 +112,60 @@ const Ourwork = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {PROJECTS.map((project, i) => (
-          <motion.a
+          <motion.div
             key={project.key}
-            href="#"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -6 }}
             whileTap={{ scale: 0.99 }}
-            className="group relative block overflow-hidden rounded-[9px] border-2 border-black/10 bg-[#1C1C1C] transition-[border-color,box-shadow] duration-300 hover:border-[#CFFF04]/40 hover:shadow-2xl hover:shadow-black/20"
+            className="group relative block overflow-hidden rounded-[9px] border border-black/5 bg-white transition-[border-color,box-shadow] duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] cursor-pointer"
           >
-            <div className="relative">
-              <ProjectMedia title={project.title} video={VIDEOS[project.key]} />
+            <Link to="/case-studies" className="block w-full h-full">
+              <div className="relative">
+                <ProjectMedia title={project.title} video={VIDEOS[project.key]} />
 
-              <motion.span
-                initial={{ opacity: 0, x: -6 }}
-                whileHover={{ opacity: 1, x: 0 }}
-                className="pointer-events-none absolute top-3 left-3 font-mono text-[11px] text-white/0 group-hover:text-[#CFFF04]/80 transition-all duration-300"
-              >
-                {String(i + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
-              </motion.span>
-
-              <span className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/40 backdrop-blur-sm px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="relative flex size-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CFFF04] opacity-75" />
-                  <span className="relative inline-flex size-1.5 rounded-full bg-[#CFFF04]" />
-                </span>
-                <span className="text-[9px] font-mono text-white/70 tracking-wide">
-                  live
-                </span>
-              </span>
-
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-
-            <div className="flex items-center justify-between border-t-2 border-white/10 bg-[#1C1C1C] px-5 py-4">
-              <div className="overflow-hidden">
-                <motion.h3
-                  initial={{ y: 0 }}
-                  whileHover={{ x: 3 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="text-white font-meow font-bold text-base leading-tight"
+                <motion.span
+                  initial={{ opacity: 0, x: -6 }}
+                  whileHover={{ opacity: 1, x: 0 }}
+                  className="pointer-events-none absolute top-3 left-3 font-mono text-[11px] text-white/0 group-hover:text-[#CFFF04]/80 transition-all duration-300"
                 >
-                  {project.title}
-                </motion.h3>
-                <p className="text-white/40 font-mono text-[11px] mt-1 uppercase tracking-wider">
-                  {project.tag} · {project.year}
-                </p>
+                  {String(i + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
+                </motion.span>
+
+                <span className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/40 backdrop-blur-sm px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="relative flex size-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CFFF04] opacity-75" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-[#CFFF04]" />
+                  </span>
+                  <span className="text-[9px] font-mono text-white/70 tracking-wide">
+                    live
+                  </span>
+                </span>
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
-              <MagneticArrow />
-            </div>
-          </motion.a>
+              <div className="flex items-center justify-between border-t-2 border-white/10 bg-[#1C1C1C] px-5 py-4">
+                <div className="overflow-hidden">
+                  <motion.h3
+                    initial={{ y: 0 }}
+                    whileHover={{ x: 3 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="text-white font-meow font-bold text-base leading-tight"
+                  >
+                    {project.title}
+                  </motion.h3>
+                  <p className="text-white/40 font-mono text-[11px] mt-1 uppercase tracking-wider">
+                    {project.tag} · {project.year}
+                  </p>
+                </div>
+
+                <MagneticArrow />
+              </div>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </section>
