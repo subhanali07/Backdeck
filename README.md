@@ -22,7 +22,7 @@ Ensure you have Node.js (v18 or higher) and `npm` or `pnpm` installed on your ma
 
   **Clone the repository:**
    ```bash
-   git clone [https://github.com/subhanali07/Launchit](https://github.com/subhanali07/launchit)
+   git clone [https://github.com/subhanali07/launchit](https://github.com/subhanali07/launchit)
    cd launchit
    npm install
    #OR
